@@ -1,0 +1,58 @@
+=========================  Part 1 =============================
+    Case  | a.out |  TEXT  |  DATA  |  BSS   |
+----------------------------------------------
+    (1)   |  7236 |  1507  |  304   |  8     |
+----------------------------------------------
+    (2)   |  7240 |  1507  |  308   |  4     |
+----------------------------------------------
+    (3)   |  7236 |  1507  |  304   |  40032 |
+----------------------------------------------
+    (4)   | 47260 |  1507  |  40328 |  4     |
+----------------------------------------------
+    (5)   |  7316 |  1710  |  308   |  8     |
+----------------------------------------------      
+    (6)   |  7328 |  1523  |  304   |  40068 |
+----------------------------------------------
+
+
+                  ANSWER THESE QUESTIONS:
+
+   1. Variables in C may be classified as
+
+          globals ---|--- UNINITIALIZED  globals;
+                     |---   INITIALIZED  globals;
+
+          locals  ---|--- AUTOMATIC locals;
+                     |--- STATIC    locals;
+
+   In terms of the above classification and the variables g, a, b, c, d,
+
+      Which variables are in DATA? initialized globals, initialized static locals
+                                   t1.c (), t2.c (g), t3.c ()
+                                   t4.c (g), t5.c (), t6.c ()
+      Which variables are in BSS? uninitialized globals, uninitialized static locals
+                                   t1.c (g), t2.c (), t3.c (g)
+                                   t4.c (), t5.c (g), t6.c (g,a,b,c,d)
+
+   2. In terms of the TEXT, DATA and BSS sections,
+      Which sections are in a.out, which section is NOT in a.out?
+      WHY? TEXT and DATA are both in a.out and BSS is not in a.out.
+
+      This is done for the optimization of the a.out file's size.
+
+      TEXT has the code which is known during compilation. DATA
+      has things that they can be initialized to during compilation time.
+
+      BSS is not in a.out due to there not being any information on what is to be initialized
+      in the BSS since there are no initialized variables there.
+
+  (B). For each case, use   cc -m32 -static t.c   to generate a.out.
+       Record the sizes again and compare them with the sizes in (A).
+       WHAT DO YOU SEE? All areas have a very big increase in size,
+                        up to 1000 times increase in some areas
+
+       WHY? The command -static instead of using dynamic linking to
+            create the binary executable, uses static linking which
+            in turn means that there is a static library with all the
+            needed library function code and data in a.out which means the file
+            size is increased by a lot.

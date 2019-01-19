@@ -1,0 +1,163 @@
+enter main
+&argc=ffd447c0 argv=ffd44854 env=ffd44868
+&a=ffd4477c &b=ffd44780 &c=ffd44784
+******Values of argc and argv[]******
+argc=4
+argv[0]=./a.out
+argv[1]=one
+argv[2]=two
+argv[3]=three
+************************************
+enter A
+******Addresses of x, y******
+&x=ffd44750, &y=ffd44754
+******Addresses of d,e,f******
+&d=ffd44730, &e=ffd44734, &f=ffd44738
+************************************
+enter B
+******Addresses of x, y******
+&x=ffd44720, &y=ffd44724
+******Addresses of g,h,i******
+&g=ffd44700, &h=ffd44704, &i=ffd44708
+************************************
+enter C
+******Addresses of x, y******
+&x=ffd446f0, &y=ffd446f4
+******Addresses of u,v,w,i,p******
+&u=ffd446c4, &v=ffd446c8, &w=ffd446cc, &i=ffd446d0, &p=ffd446d4
+************************************
+******Printing Stack frame list FP=ffd446e8******
+ffd446e8 => ffd44718 => ffd44748 => ffd447a8 => 0
+************************************
+******Printing Stack Content, 128 entries******
+1)	ffd446d4	ffd446d4
+2)	ffd446d8	1
+3)	ffd446dc	970c6000
+4)	ffd446e0	ffd447c0
+5)	ffd446e4	56626fd0
+6)	ffd446e8	ffd44718
+7)	ffd446ec	566248a2
+8)	ffd446f0	7
+9)	ffd446f4	8
+10)	ffd446f8	ffd44704
+11)	ffd446fc	ffd44708
+12)	ffd44700	7
+13)	ffd44704	8
+14)	ffd44708	9
+15)	ffd4470c	970c6000
+16)	ffd44710	ffd447c0
+17)	ffd44714	56626fd0
+18)	ffd44718	ffd44748
+19)	ffd4471c	566247b7
+20)	ffd44720	4
+21)	ffd44724	5
+22)	ffd44728	ffd44734
+23)	ffd4472c	ffd44738
+24)	ffd44730	4
+25)	ffd44734	5
+26)	ffd44738	6
+27)	ffd4473c	970c6000
+28)	ffd44740	ffd447c0
+29)	ffd44744	56626fd0
+30)	ffd44748	ffd447a8
+31)	ffd4474c	566246c2
+32)	ffd44750	1
+33)	ffd44754	2
+34)	ffd44758	ffd46268
+35)	ffd4475c	ffd44784
+36)	ffd44760	9
+37)	ffd44764	ffd46258
+38)	ffd44768	ffd44868
+39)	ffd4476c	ffd44854
+40)	ffd44770	f7f9b000
+41)	ffd44774	f7f9b000
+42)	ffd44778	0
+43)	ffd4477c	1
+44)	ffd44780	2
+45)	ffd44784	3
+46)	ffd44788	4
+47)	ffd4478c	970c6000
+48)	ffd44790	4
+49)	ffd44794	ffd44854
+50)	ffd44798	ffd44868
+51)	ffd4479c	ffd447c0
+52)	ffd447a0	0
+53)	ffd447a4	f7f9b000
+54)	ffd447a8	0
+55)	ffd447ac	f7ddee81
+56)	ffd447b0	f7f9b000
+57)	ffd447b4	f7f9b000
+58)	ffd447b8	0
+59)	ffd447bc	f7ddee81
+60)	ffd447c0	4
+61)	ffd447c4	ffd44854
+62)	ffd447c8	ffd44868
+63)	ffd447cc	ffd447e4
+64)	ffd447d0	4
+65)	ffd447d4	ffd44854
+66)	ffd447d8	f7f9b000
+67)	ffd447dc	f7fd175a
+68)	ffd447e0	ffd44850
+69)	ffd447e4	0
+70)	ffd447e8	f7f9b000
+71)	ffd447ec	0
+72)	ffd447f0	0
+73)	ffd447f4	6a988510
+74)	ffd447f8	79cb8300
+75)	ffd447fc	0
+76)	ffd44800	0
+77)	ffd44804	0
+78)	ffd44808	40
+79)	ffd4480c	f7fe9024
+80)	ffd44810	0
+81)	ffd44814	0
+82)	ffd44818	f7fd1869
+83)	ffd4481c	56626fd0
+84)	ffd44820	4
+85)	ffd44824	56624470
+86)	ffd44828	0
+87)	ffd4482c	566244a1
+88)	ffd44830	566245ad
+89)	ffd44834	4
+90)	ffd44838	ffd44854
+91)	ffd4483c	56624aa0
+92)	ffd44840	56624b00
+93)	ffd44844	f7fd19b0
+94)	ffd44848	ffd4484c
+95)	ffd4484c	f7fe9940
+96)	ffd44850	4
+97)	ffd44854	ffd46258
+98)	ffd44858	ffd46260
+99)	ffd4485c	ffd46264
+100)	ffd44860	ffd46268
+101)	ffd44864	0
+102)	ffd44868	ffd4626e
+103)	ffd4486c	ffd46284
+104)	ffd44870	ffd46870
+105)	ffd44874	ffd4688b
+106)	ffd44878	ffd468ad
+107)	ffd4487c	ffd468c2
+108)	ffd44880	ffd468da
+109)	ffd44884	ffd468f1
+110)	ffd44888	ffd46902
+111)	ffd4488c	ffd4690d
+112)	ffd44890	ffd4693b
+113)	ffd44894	ffd4695b
+114)	ffd44898	ffd4696f
+115)	ffd4489c	ffd46980
+116)	ffd448a0	ffd4698b
+117)	ffd448a4	ffd469b4
+118)	ffd448a8	ffd469ea
+119)	ffd448ac	ffd469fe
+120)	ffd448b0	ffd46a0f
+121)	ffd448b4	ffd46a1c
+122)	ffd448b8	ffd46a33
+123)	ffd448bc	ffd46a45
+124)	ffd448c0	ffd46a66
+125)	ffd448c4	ffd46abc
+126)	ffd448c8	ffd46aef
+127)	ffd448cc	ffd46b20
+128)	ffd448d0	ffd46b33
+exit B
+exit A
+exit main

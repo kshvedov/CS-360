@@ -1,0 +1,157 @@
+enter main
+&argc=ffeaa170 argv=ffeaa204 env=ffeaa218
+&a=ffeaa12c &b=ffeaa130 &c=ffeaa134
+******Values of argc and argv[]******
+argc=4
+argv[0]=./a.out
+argv[1]=one
+argv[2]=two
+argv[3]=three
+************************************
+enter A
+******Addresses of d,e,f******
+&d=ffeaa0e0, &e=ffeaa0e4, &f=ffeaa0e8
+************************************
+enter B
+******Addresses of g,h,i******
+&g=ffeaa0b0, &h=ffeaa0b4, &i=ffeaa0b8
+************************************
+enter C
+******Addresses of u,v,w,i,p******
+&u=ffeaa074, &v=ffeaa078, &w=ffeaa07c, &i=ffeaa080, &p=ffeaa084
+************************************
+******Printing Stack frame list FP=ffeaa098******
+ffeaa098 => ffeaa0c8 => ffeaa0f8 => ffeaa158 => 0
+************************************
+******Printing Stack Content, 128 entries******
+1)	ffeaa084	ffeaa084
+2)	ffeaa088	1
+3)	ffeaa08c	2b342900
+4)	ffeaa090	ffeaa170
+5)	ffeaa094	56556fd0
+6)	ffeaa098	ffeaa0c8
+7)	ffeaa09c	5655584a
+8)	ffeaa0a0	7
+9)	ffeaa0a4	8
+10)	ffeaa0a8	ffeaa0b4
+11)	ffeaa0ac	ffeaa0b8
+12)	ffeaa0b0	7
+13)	ffeaa0b4	8
+14)	ffeaa0b8	9
+15)	ffeaa0bc	2b342900
+16)	ffeaa0c0	ffeaa170
+17)	ffeaa0c4	56556fd0
+18)	ffeaa0c8	ffeaa0f8
+19)	ffeaa0cc	5655578b
+20)	ffeaa0d0	4
+21)	ffeaa0d4	5
+22)	ffeaa0d8	ffeaa0e4
+23)	ffeaa0dc	ffeaa0e8
+24)	ffeaa0e0	4
+25)	ffeaa0e4	5
+26)	ffeaa0e8	6
+27)	ffeaa0ec	2b342900
+28)	ffeaa0f0	ffeaa170
+29)	ffeaa0f4	56556fd0
+30)	ffeaa0f8	ffeaa158
+31)	ffeaa0fc	565556c2
+32)	ffeaa100	1
+33)	ffeaa104	2
+34)	ffeaa108	ffeac268
+35)	ffeaa10c	ffeaa134
+36)	ffeaa110	9
+37)	ffeaa114	ffeac258
+38)	ffeaa118	ffeaa218
+39)	ffeaa11c	ffeaa204
+40)	ffeaa120	f7f4a000
+41)	ffeaa124	f7f4a000
+42)	ffeaa128	0
+43)	ffeaa12c	1
+44)	ffeaa130	2
+45)	ffeaa134	3
+46)	ffeaa138	4
+47)	ffeaa13c	2b342900
+48)	ffeaa140	4
+49)	ffeaa144	ffeaa204
+50)	ffeaa148	ffeaa218
+51)	ffeaa14c	ffeaa170
+52)	ffeaa150	0
+53)	ffeaa154	f7f4a000
+54)	ffeaa158	0
+55)	ffeaa15c	f7d8de81
+56)	ffeaa160	f7f4a000
+57)	ffeaa164	f7f4a000
+58)	ffeaa168	0
+59)	ffeaa16c	f7d8de81
+60)	ffeaa170	4
+61)	ffeaa174	ffeaa204
+62)	ffeaa178	ffeaa218
+63)	ffeaa17c	ffeaa194
+64)	ffeaa180	4
+65)	ffeaa184	ffeaa204
+66)	ffeaa188	f7f4a000
+67)	ffeaa18c	f7f8075a
+68)	ffeaa190	ffeaa200
+69)	ffeaa194	0
+70)	ffeaa198	f7f4a000
+71)	ffeaa19c	0
+72)	ffeaa1a0	0
+73)	ffeaa1a4	449f448f
+74)	ffeaa1a8	2061229f
+75)	ffeaa1ac	0
+76)	ffeaa1b0	0
+77)	ffeaa1b4	0
+78)	ffeaa1b8	40
+79)	ffeaa1bc	f7f98024
+80)	ffeaa1c0	0
+81)	ffeaa1c4	0
+82)	ffeaa1c8	f7f80869
+83)	ffeaa1cc	56556fd0
+84)	ffeaa1d0	4
+85)	ffeaa1d4	56555470
+86)	ffeaa1d8	0
+87)	ffeaa1dc	565554a1
+88)	ffeaa1e0	565555ad
+89)	ffeaa1e4	4
+90)	ffeaa1e8	ffeaa204
+91)	ffeaa1ec	56555a20
+92)	ffeaa1f0	56555a80
+93)	ffeaa1f4	f7f809b0
+94)	ffeaa1f8	ffeaa1fc
+95)	ffeaa1fc	f7f98940
+96)	ffeaa200	4
+97)	ffeaa204	ffeac258
+98)	ffeaa208	ffeac260
+99)	ffeaa20c	ffeac264
+100)	ffeaa210	ffeac268
+101)	ffeaa214	0
+102)	ffeaa218	ffeac26e
+103)	ffeaa21c	ffeac284
+104)	ffeaa220	ffeac870
+105)	ffeaa224	ffeac88b
+106)	ffeaa228	ffeac8ad
+107)	ffeaa22c	ffeac8c2
+108)	ffeaa230	ffeac8da
+109)	ffeaa234	ffeac8f1
+110)	ffeaa238	ffeac902
+111)	ffeaa23c	ffeac90d
+112)	ffeaa240	ffeac93b
+113)	ffeaa244	ffeac95b
+114)	ffeaa248	ffeac96f
+115)	ffeaa24c	ffeac980
+116)	ffeaa250	ffeac98b
+117)	ffeaa254	ffeac9b4
+118)	ffeaa258	ffeac9ea
+119)	ffeaa25c	ffeac9fe
+120)	ffeaa260	ffeaca0f
+121)	ffeaa264	ffeaca1c
+122)	ffeaa268	ffeaca33
+123)	ffeaa26c	ffeaca45
+124)	ffeaa270	ffeaca66
+125)	ffeaa274	ffeacabc
+126)	ffeaa278	ffeacaef
+127)	ffeaa27c	ffeacb20
+128)	ffeaa280	ffeacb33
+exit B
+exit A
+exit main

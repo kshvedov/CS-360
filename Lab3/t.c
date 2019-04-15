@@ -242,7 +242,7 @@ int exec(char **input, char* env[])
         strcpy(cmd, paths[j]);
         strcat(cmd, "/");
         strcat(cmd, input[0]);
-        //printf("Attempting CMD: %s\n", cmd);
+        printf("Attempting CMD: %s\n", cmd);
         r = execve(cmd, input, env);
     }
     printf("execve() failed: r = %d\n", r); // only if fails

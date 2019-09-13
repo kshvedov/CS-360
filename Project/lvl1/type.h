@@ -31,6 +31,7 @@ typedef struct minode{
   struct mntable *mptr;
 }MINODE;
 
+//open file table
 typedef struct oft{
   int  mode;
   int  refCount;

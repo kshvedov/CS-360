@@ -177,6 +177,47 @@ int getino(char *pathname)
    return ino;
 }
 
+int getino2(char *pathname, int *dev)
+{
+  int i, ino, blk, disp;
+  INODE *ip;
+  MINODE *mip;
+
+  printf("getino: pathname=%s\n", pathname);
+  if (strcmp(pathname, "/")==0)
+  {
+    dev = root->dev;
+    return 2;
+  }
+
+  if (pathname[0]=='/')
+  {
+    dev = root->dev;
+    mip = iget(dev, 2);
+  }
+  else
+  {
+    dev = running->cwd->dev;
+    mip = iget(dev, running->cwd->ino);
+  }
+
+  n = tokenize(pathname);
+
+  for (i=0; i<n; i++){
+      printf("===========================================\n");
+      ino = search(mip, name[i]);
+
+      if (ino==0){
+         iput(mip);
+         printf("name %s does not exist\n", name[i]);
+         return -1;
+      }
+      iput(mip);
+      mip = iget(dev, ino);
+    }
+   return ino;
+}
+
 /*****initilly for mkdir and create*****/
 //tests what the bit at the exact location is
 int tst_bit(char *buf, int bit)
@@ -243,33 +284,6 @@ int balloc(int dev)
 }
 /************************************/
 /**********Dealloc Functions*********/
-/*int incFreeInodes(int dev)
-{
-  char buf[BLKSIZE];
-  // inc free inodes count in SUPER and GD
-  get_block(dev, 1, buf);
-  sp = (SUPER *)buf;
-  sp->s_free_inodes_count++;
-  put_block(dev, 1, buf);
-  get_block(dev, 2, buf);
-  gp = (GD *)buf;
-  gp->bg_free_inodes_count++;
-  put_block(dev, 2, buf);
-}
-
-int incFreeBlock(int dev)
-{
-  char buf[BLKSIZE];
-  // inc free blocks count in SUPER and GD
-  get_block(dev, 1, buf);
-  sp = (SUPER *)buf;
-  sp->s_free_blocks_count++;
-  put_block(dev, 1, buf);
-  get_block(dev, 2, buf);
-  gp = (GD *)buf;
-  gp->bg_free_blocks_count++;
-  put_block(dev, 2, buf);
-}*/
 
 int idealloc(int dev, int ino)
 {

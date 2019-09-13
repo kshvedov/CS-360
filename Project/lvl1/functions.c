@@ -1,4 +1,4 @@
-/************* cd_ls_pwd.c file **************/
+/************* functions.c file **************/
 
 /**** globals defined in main.c file ****/
 extern MINODE minode[NMINODE];
@@ -11,7 +11,7 @@ extern int fd, dev;
 extern int nblocks, ninodes, bmap, imap, inode_start;
 extern char line[256], cmd[32], pathname[256], extra[256], temptk[256];
 extern char *disk;
-char mydirname[256], mybasename[256];
+extern char mydirname[256], mybasename[256];
 
 #define OWNER  000700
 #define GROUP  000070

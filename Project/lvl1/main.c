@@ -16,17 +16,22 @@ MINODE minode[NMINODE];
 MINODE *root;
 PROC   proc[NPROC], *running;
 
-char   gpath[256]; // global for tokenized components
-char   *name[64];  // assume at most 64 components in pathname
-int    n;          // number of component strings
+char     gpath[256]; // global for tokenized components
+char     *name[64];  // assume at most 64 components in pathname
+int      n;          // number of component strings
 
-int    fd, dev;
-int    nblocks, ninodes, bmap, imap, inode_start;
-char   line[256], cmd[32], pathname[256], extra[256], temptk[256];
-char   *disk = "disk";
+int      fd, dev;
+int      nblocks, ninodes, bmap, imap, inode_start;
+char     line[256], cmd[32], pathname[256], extra[256], temptk[256];
+char     *disk = "disk";
+int      writePrint = 1, readPrint = 1;
+char     mydirname[256], mybasename[256];
 
 #include "util.c"
 #include "functions.c"
+#include "open_close_lseek.c"
+#include "read_cat.c"
+#include "write_cp_mv.c"
 
 #define MKDIR  1
 #define CREAT  2
@@ -130,7 +135,8 @@ int main(int argc, char *argv[ ])
     extra[0]= '\0';
     printf("***********************************************************\n");
     printf("[ls|cd|pwd|mkdir|rmdir|creat|link|unlink|symlink|readlink|stat|chmod|touch|quit]\n");
-    printf("input command : ");
+    printf("[open|close|lseek|pfd|read|write|cat|cp|mv]\n");
+    printf("input command: ");
     fgets(line, 128, stdin);
     printf("***********************************************************\n");
     line[strlen(line)-1] = 0;
@@ -138,41 +144,81 @@ int main(int argc, char *argv[ ])
       continue;
     pathname[0] = 0;
     cmd[0] = 0;
+    extra[0] = 0;
     
     sscanf(line, "%s %s %s", cmd, pathname, extra);
-    printf("cmd=%s pathname=%s\n", cmd, pathname);
+    printf("cmd=%s arg[1]=%s arg[2]=%s\n", cmd, pathname, extra);
 
-    if (strcmp(cmd, "ls")==0)
-       list_file();
-    if (strcmp(cmd, "cd")==0)
-       change_dir();
-    if (strcmp(cmd, "pwd")==0)
-       pwd(running->cwd);
-    if (strcmp(cmd, "mkdir")==0)
-       myMake(MKDIR);
-    if (strcmp(cmd, "creat")==0)
-       myMake(CREAT);
-    if (strcmp(cmd, "rmdir")==0)
-       myrmdir();
-    if (strcmp(cmd, "link")==0)
-       myLink();
-    if (strcmp(cmd, "unlink")==0)
-       myUnLink();  
-    if (strcmp(cmd, "symlink")==0)
-       mySymLink();
-    if (strcmp(cmd, "readlink")==0)
-      {
-        myReadLink(buf);
-        printf("Symlink to: %s\n", buf);
-      }
-    if (strcmp(cmd, "stat")==0)
-       myStat();
-    if (strcmp(cmd, "chmod")==0)
-       myChmod();
-    if (strcmp(cmd, "touch")==0)
-       myTouch();
-    if (strcmp(cmd, "quit")==0)
-       quit();
+   if (strcmp(cmd, "ls")==0)
+      list_file();
+   if (strcmp(cmd, "cd")==0)
+      change_dir();
+   if (strcmp(cmd, "pwd")==0)
+      pwd(running->cwd);
+   if (strcmp(cmd, "mkdir")==0)
+      myMake(MKDIR);
+   if (strcmp(cmd, "creat")==0)
+      myMake(CREAT);
+   if (strcmp(cmd, "rmdir")==0)
+      myrmdir();
+   if (strcmp(cmd, "link")==0)
+      myLink();
+   if (strcmp(cmd, "unlink")==0)
+      myUnLink();  
+   if (strcmp(cmd, "symlink")==0)
+      mySymLink();
+   if (strcmp(cmd, "readlink")==0)
+   {
+      myReadLink(buf);
+      printf("Symlink to: %s\n", buf);
+   }
+   if (strcmp(cmd, "stat")==0)
+      myStat();
+   if (strcmp(cmd, "chmod")==0)
+      myChmod();
+   if (strcmp(cmd, "touch")==0)
+      myTouch();
+
+   if (strcmp(cmd, "open")==0)
+      if(strcmp(pathname, "") == 0 || (strcmp(extra, "") == 0))
+         printf("ERROR: too few arguments!\n");
+      else myOpenFile();
+
+   if (strcmp(cmd, "close")==0)
+      if(strcmp(pathname, "") == 0)
+         printf("ERROR: too few arguments!\n");
+      else myClose(atoi(pathname));
+      
+   if (strcmp(cmd, "lseek")==0)
+      if(strcmp(pathname, "") == 0 || (strcmp(extra, "") == 0))
+         printf("ERROR: too few arguments!\n");
+      else myLseek(atoi(pathname), atoi(extra));
+
+   if (strcmp(cmd, "pfd")==0)
+      myPfd();
+   if (strcmp(cmd, "read")==0)
+      myReadFile();
+
+   if (strcmp(cmd, "cat")==0)
+      if(strcmp(pathname, "") == 0)
+         printf("ERROR: too few arguments!\n");
+      else myCat();
+
+   if (strcmp(cmd, "write")==0)
+      myWriteFile();
+
+   if (strcmp(cmd, "cp")==0)
+      if(strcmp(pathname, "") == 0 || (strcmp(extra, "") == 0))
+         printf("ERROR: too few arguments!\n");
+      else myCP(pathname, extra);
+
+   if (strcmp(cmd, "mv")==0)
+      if(strcmp(pathname, "") == 0 || (strcmp(extra, "") == 0))
+         printf("ERROR: too few arguments!\n");
+      else myMV(pathname, extra);
+
+   if (strcmp(cmd, "quit")==0)
+      quit();
   }
 
   //getchar();
